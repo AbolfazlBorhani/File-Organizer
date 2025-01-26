@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>WHI3PER::FS</string>
+   <string>File Organizer</string>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget {
