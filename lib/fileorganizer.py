@@ -28,7 +28,7 @@ class FileOrganizer(QMainWindow):
         super(FileOrganizer, self).__init__()
         loadUi('UI/Main.ui', self)
         
-        self.setWindowIcon(QtGui.QIcon(getcwd() + '/Img/WHI3PER.ico'))
+        self.setWindowIcon(QtGui.QIcon(getcwd() + '/logo/WHI3PER.png'))
         self.PATH.insert('C:/Users/' + getuser() + '/Desktop/')
         
         # ========================================================== #
@@ -37,16 +37,6 @@ class FileOrganizer(QMainWindow):
         self.CATEGORIES.clicked.connect(self.categories)
         self.RENAME.clicked.connect(self.rename)
         self.DELETE.clicked.connect(self.delete)
-
-    # ============================================================================================== #
-
-    def aboutMe(self):
-        loadUi('UI/About Me.ui', self)
-        self.LOGO_LABEL.setPixmap(QPixmap(getcwd() + '/Img/WHI3PER.png'))
-        self.EMAIL.setPixmap(QPixmap(getcwd() + '/Img/Gmail.png'))
-        self.GITHUB.setPixmap(QPixmap(getcwd() + '/Img/Github.png'))
-        self.LINKDIN.setPixmap(QPixmap(getcwd() + '/Img/Linkdin.png'))
-        self.TELEGRAM.setPixmap(QPixmap(getcwd() + '/Img/Telegram.png'))
         
     # ============================================================================================== #
     
