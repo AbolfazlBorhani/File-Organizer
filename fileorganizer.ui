@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FileOrganizer</class>
+ <widget class="QMainWindow" name="FileOrganizer">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>612</width>
+    <height>339</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>10000</width>
+    <height>10000</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>File Organizer</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QWidget {
+	font: 11pt &quot;Ubuntu&quot;;
+	background-color: rgb(50, 50, 50);
+ }
+
+QLineEdit{ 
+	border-radius: 15px;
+	border: 1px solid #333;
+	background-color: rgb(0, 0, 0);
+	color: rgb(0, 170, 255);
+}
+
+QPushButton {
+	border-radius: 15px;
+	border: 2px solid #333;
+	background-color: rgb(0, 130, 195);
+	color: rgb(255, 255, 255);
+}
+
+QTextBrowser {
+	border-radius: 5px;
+	border: 2px solid #333;
+	color: rgb(0, 170, 255);
+	font: 12pt &quot;Consolas&quot;;
+}
+
+QGroupBox {
+	border-radius: 5px;
+	background-color: rgb(0, 0, 0);
+	color: rgb(0, 255, 127);
+}
+
+QComboBox {
+	border-radius: 5px;
+	border: 2px solid #333;
+	background-color: rgb(68, 68, 68); 
+	color: rgb(0, 255, 255);
+}
+
+QFrame {
+	border-radius: 20px;
+	background-color: rgb(200, 200, 200);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>270</y>
+      <width>371</width>
+      <height>43</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="Rename">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>6</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Ubuntu</family>
+       <pointsize>11</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Rename</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="RenameComboBox">
+     <property name="geometry">
+      <rect>
+       <x>107</x>
+       <y>6</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Ubuntu</family>
+       <pointsize>11</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LayoutDirection::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame {
+	border-radius: 20px;
+	background-color: rgb(70, 70, 70);
+	color: rgb(85, 255, 255);
+}</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>TXT</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>PNG</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>JPG</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>MP4</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>MKV</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>MP3</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>GIF</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>WEBP</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>WEBM</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="Delete">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>6</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Ubuntu</family>
+       <pointsize>11</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Delete</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="DeleteComboBox">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>6</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Ubuntu</family>
+       <pointsize>11</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QFrame {
+	border-radius: 20px;
+	background-color: rgb(70, 70, 70);
+	color: rgb(85, 255, 255);
+}</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>ALL</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>TXT</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>PNG</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>JPG</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>MP4</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>MKV</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>MP3</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>GIF</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>WEBP</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>WEBM</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>ETC</string>
+      </property>
+     </item>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_2">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>270</y>
+      <width>211</width>
+      <height>43</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QPushButton" name="Categories">
+     <property name="geometry">
+      <rect>
+       <x>6</x>
+       <y>6</y>
+       <width>93</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Ubuntu</family>
+       <pointsize>11</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Categories</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Show">
+     <property name="geometry">
+      <rect>
+       <x>112</x>
+       <y>6</y>
+       <width>93</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Ubuntu</family>
+       <pointsize>11</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string>Show</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QFrame" name="frame_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>591</width>
+      <height>251</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Shape::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Shadow::Raised</enum>
+    </property>
+    <widget class="QTextBrowser" name="Logs">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>48</y>
+       <width>581</width>
+       <height>196</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Consolas</family>
+       <pointsize>12</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(0, 0, 0);</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="Path">
+     <property name="geometry">
+      <rect>
+       <x>5</x>
+       <y>7</y>
+       <width>581</width>
+       <height>35</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Ubuntu</family>
+       <pointsize>11</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignmentFlag::AlignCenter</set>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>612</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="LIGHT">
+   <property name="text">
+    <string>Set Light Mode</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
+   </property>
+  </action>
+  <action name="DARK">
+   <property name="text">
+    <string>Set Dark Mode</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+2</string>
+   </property>
+  </action>
+  <action name="PURPLE">
+   <property name="text">
+    <string>Set Purple Mode</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+4</string>
+   </property>
+  </action>
+  <action name="BLUE">
+   <property name="text">
+    <string>Set Blue Mode</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+5</string>
+   </property>
+  </action>
+  <action name="ABOUT">
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="shortcut">
+    <string/>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="text">
+    <string>Help ?</string>
+   </property>
+  </action>
+  <action name="DEFUALT">
+   <property name="text">
+    <string>Defualt</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+0</string>
+   </property>
+  </action>
+  <action name="GRAY">
+   <property name="text">
+    <string>Set Gray Mode</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+3</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
