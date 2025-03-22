@@ -39,18 +39,6 @@ bool FileOrganizer::ChackExistsDirectory(str& path) {
 
 void FileOrganizer::ClearAllVectors() {
     this->Files.clear();
-    // this->TXT.clear();
-    // this->PNG.clear();
-    // this->JPG.clear();
-    // this->MP4.clear();
-    // this->MKV.clear();
-    // this->MOV.clear();
-    // this->MP3.clear();
-    // this->GIF.clear();
-    // this->WEBP.clear();
-    // this->WEBM.clear();
-    // this->HEIC.clear();
-    // this->ETC.clear();
 }
 
 bool FileOrganizer::SaveFilesNames() {
@@ -128,6 +116,16 @@ void FileOrganizer::Warning(QString Format, int Case) {
     }
 }
 
+str FileOrganizer::ToLower(str extension) {
+    str result{""};
+
+    for (const auto& character : extension) {
+        result += static_cast<char>(std::tolower(character));
+    }
+
+    return result;
+}
+
 void FileOrganizer::on_Show_clicked() {
     ui->Logs->clear();
     ui->Logs->append("\t\t   *** Show Directory ***\n");
@@ -136,11 +134,11 @@ void FileOrganizer::on_Show_clicked() {
         for (const auto& pair : this->Files) {
             if (!pair.second.empty()) {
                 int index{ 0 };
-                ui->Logs->append(QString::fromStdString(pair.first));
+                ui->Logs->append('[' + QString::fromStdString(pair.first) + ']');
                 for (const auto& value : pair.second) {
                     ui->Logs->append('[' + QString::number(++index) +
                                      '/' + QString::number(pair.second.size()) +
-                                     "] -- " + QString::fromStdString(value));
+                                     "] " + QString::fromStdString(value));
                 }
                 ui->Logs->append("");
             }
@@ -182,14 +180,27 @@ void FileOrganizer::on_Rename_clicked() {
 
         for (const auto& pair : this->Files) {
             if (QString::fromStdString(pair.first) == ui->RenameComboBox->currentText()) {
-                int index{ 0 };
+                int index{ 1 };
+                int count{ 0 };
+
                 for (const auto& value : pair.second) {
-                    fs::rename(this->Path + value, this->Path + std::to_string(++index) + "." + pair.first);
-                    ui->Logs->append("- " + QString::fromStdString(value));
+                    str OldFileName{ this->Path + value };
+                    str NewFileName{ this->Path + std::to_string(index) + "." + this->ToLower(pair.first) };
+
+                    if (fs::exists(NewFileName)) {
+                        ui->Logs->append("Skipped: " + QString::fromStdString(value) + " already exists.");
+                        ++index;
+                    }
+                    else {
+                        fs::rename(OldFileName, NewFileName);
+                        ui->Logs->append("Renamed: " + QString::fromStdString(value) + " -> " + QString::fromStdString(std::to_string(index) + "." + this->ToLower(pair.first)));
+                        ++index;
+                        ++count;
+                    }
                 }
 
                 ui->Logs->append("\nResult: "
-                                 + QString::number(pair.second.size()) + ' '
+                                 + QString::number(count) + ' '
                                  + QString::fromStdString(pair.first)
                                  + " files have been successfully renamed.");
 
