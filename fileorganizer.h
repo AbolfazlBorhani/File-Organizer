@@ -39,9 +39,7 @@ private slots:
 
 private:
     Ui::FileOrganizer *ui;
-
     str Path{""};
-
     mvs Files{};
 };
 
