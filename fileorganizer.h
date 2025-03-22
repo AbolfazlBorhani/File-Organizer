@@ -9,8 +9,6 @@
 #include <string>
 #include <map>
 
-#include <iostream>
-
 typedef std::map<std::string, std::vector<std::string>> mvs;
 typedef std::string str;
 
@@ -31,14 +29,12 @@ public:
     void ClearAllVectors();
     bool SaveFilesNames();
     void Warning(QString, int);
+    str ToLower(str);
 
 private slots:
     void on_Show_clicked();
-
     void on_Categories_clicked();
-
     void on_Rename_clicked();
-
     void on_Delete_clicked();
 
 private:
@@ -47,18 +43,6 @@ private:
     str Path{""};
 
     mvs Files{};
-    // mvs TXT{};
-    // mvs PNG{};
-    // mvs JPG{};
-    // mvs MP4{};
-    // mvs MKV{};
-    // mvs MOV{};
-    // mvs MP3{};
-    // mvs GIF{};
-    // mvs WEBP{};
-    // mvs WEBM{};
-    // mvs HEIC{};
-    // mvs ETC{};
 };
 
 #endif // FILEORGANIZER_H
