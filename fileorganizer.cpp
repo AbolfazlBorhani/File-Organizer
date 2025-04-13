@@ -12,13 +12,7 @@ FileOrganizer::~FileOrganizer() {
 str FileOrganizer::GetPath() const {
     str text{ ui->Path->text().toUtf8().toStdString() };
 
-    if (text.find('\\') < 100) {
-        for (std::size_t i{ 0 }; i < text.length(); ++i) {
-            if (text.at(i) == '\\') {
-                text.replace(i, 1, "/");
-            }
-        }
-    }
+    std::replace(text.begin(), text.end(), '\\', '/');
 
     if (!text.ends_with("/")) {
         text.append("/");
